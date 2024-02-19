@@ -13,6 +13,10 @@ class _login_screenState extends State<login_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('login'),
+        backgroundColor: Colors.red,
+      ),
     );
   }
 }
