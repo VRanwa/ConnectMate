@@ -1,4 +1,5 @@
 import 'package:connect_mate/src/screen/login/login_screen.dart';
+import 'package:connect_mate/src/screen/start/start_screen.dart';
 import 'package:flutter/material.dart';
 
 class splash_screen extends StatelessWidget {
@@ -10,7 +11,7 @@ class splash_screen extends StatelessWidget {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => login_screen(),
+          pageBuilder: (context, animation, secondaryAnimation) => start_screen(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(opacity: animation, child: child);
           },
