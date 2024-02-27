@@ -143,7 +143,7 @@ class _profile_screenState extends State<profile_screen> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Icon(Icons.home,size: 40,),
                       Icon(Icons.wallet,size: 40,),

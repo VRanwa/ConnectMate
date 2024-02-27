@@ -98,7 +98,7 @@ class _signUp_screenState extends State<signUp_screen> {
                 child: Container(
                   height: 50,
                   width: 360,
-                  color: Colors.indigo,
+                  color: Colors.indigo.shade900,
                   child: Text('Register',
                     textAlign: TextAlign.center,
                     style: TextStyle(

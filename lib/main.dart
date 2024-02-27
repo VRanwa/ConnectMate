@@ -1,4 +1,3 @@
-import 'package:connect_mate/src/screen/login/login_screen.dart';
 import 'package:connect_mate/src/screen/start/start_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 4), () {
+    Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => start_screen()),
@@ -37,16 +36,34 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          height: 300,
-          width:  300,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/logo.PNG'),
-              fit: BoxFit.cover,
-            )
-          )
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 200,
+              width:  200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                border: Border.all(
+                  color: Colors.black,
+                  width: 3,
+                ),
+              ),
+              child: Center(child: Text('C',style: TextStyle(
+                color: Colors.blue.shade900,
+                fontWeight: FontWeight.bold,
+                fontSize: 90,
+              ),
+              ),
+              ),
+            ),
+            Text('Connect...Mate',style:TextStyle(
+               fontSize: 20,
+              fontWeight: FontWeight.bold
+            )),
+          ],
         ),
+
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:connect_mate/src/screen/home/home_screen.dart';
 import 'package:connect_mate/src/screen/signup/signup_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -71,12 +72,12 @@ class _login_screenState extends State<login_screen> {
 
             InkWell(
               onTap: () {
-
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>home_screen()));
               },
               child: Container(
                 height: 50,
                 width: 360,
-                color: Colors.indigo,
+                color: Colors.indigo.shade900,
                 child: Text('Login',
                   textAlign: TextAlign.center,
                   style: TextStyle(
