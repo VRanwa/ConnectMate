@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class profile_screen extends StatefulWidget {
-  const profile_screen({super.key});
+class account_screen extends StatefulWidget {
+  const account_screen({super.key});
 
 
   @override
-  State<profile_screen> createState() => _profile_screenState();
+  State<account_screen> createState() => account_screenState();
 
 }
 
 
-class _profile_screenState extends State<profile_screen> {
+class account_screenState extends State<account_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,30 +22,32 @@ class _profile_screenState extends State<profile_screen> {
             padding: const EdgeInsets.only(top: 80.0),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 140),
-                      child: Text('Profile',
-                          textAlign:TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.black,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
+                Center(
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text('My account',
+                            textAlign:TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.black,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                        ),
                       ),
-                    ),
-                    SizedBox(width: 100),
-                    Text('₹',
-                      textAlign:TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
+                      SizedBox(width: 170),
+                      Text('₹',
+                        textAlign:TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
 
-                  ],
+                    ],
+                  ),
                 ),
                 SizedBox(height: 30),
                 Container(
@@ -77,7 +79,7 @@ class _profile_screenState extends State<profile_screen> {
                           padding: const EdgeInsets.all(17),
                           child: Icon(Icons.navigate_next),
                         ),
-                        title: Text("Hire for hourly"),
+                        title: Text("your orders"),
                       ),
                     ),
                   ),
@@ -93,7 +95,7 @@ class _profile_screenState extends State<profile_screen> {
                           padding: const EdgeInsets.all(17),
                           child: Icon(Icons.navigate_next),
                         ),
-                        title: Text("Hire for hourly"),
+                        title: Text("saved address"),
                       ),
                     ),
                   ),
@@ -109,7 +111,7 @@ class _profile_screenState extends State<profile_screen> {
                           padding: const EdgeInsets.all(17),
                           child: Icon(Icons.navigate_next),
                         ),
-                        title: Text("Hire for hourly"),
+                        title: Text("write to us"),
                       ),
                     ),
                   ),
@@ -125,12 +127,12 @@ class _profile_screenState extends State<profile_screen> {
                           padding: const EdgeInsets.all(17),
                           child: Icon(Icons.navigate_next),
                         ),
-                        title: Text("Hire for hourly"),
+                        title: Text("Logout"),
                       ),
                     ),
                   ),
                 ),
-             SizedBox(height: 80),
+             SizedBox(height: 120),
 
                 Container(
                   width: 380,

@@ -1,4 +1,7 @@
-import 'package:connect_mate/src/screen/profile/profile_screen.dart';
+import 'package:connect_mate/src/screen/account/account_screen.dart';
+import 'package:connect_mate/src/screen/hire/hire_screen.dart';
+import 'package:connect_mate/src/screen/pickupdrop/pickupdrop_screen.dart';
+import 'package:connect_mate/src/screen/profession/profession_screen.dart';
 import 'package:flutter/material.dart';
 
 class home_screen extends StatefulWidget {
@@ -30,7 +33,7 @@ class _home_screenState extends State<home_screen> {
                   SizedBox(width: 225),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>profile_screen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>account_screen()));
                     },
                     child: Container(
                       height: 70,
@@ -52,43 +55,83 @@ class _home_screenState extends State<home_screen> {
                 color: Colors.grey.shade300,
               ),
             ),
+
             SizedBox(height: 25),
-            ListTile(
-              leading: Card(
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>hire_screen()));
+              },
+              child: ListTile(
+                leading: Card(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(17),
+                      child: Icon(Icons.computer_outlined),
+                    )),
+                title: Text("Hire for hourly"),
+              ),
+            ),
+            SizedBox(height:15),
+
+
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>pickupdrop_screen()));
+              },
+              child: ListTile(
+                leading: Card(
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
                   child: Padding(
                     padding: const EdgeInsets.all(17),
-                    child: Icon(Icons.computer_outlined),
-                  )),
-              title: Text("Hire for hourly"),
+                    child: Icon(Icons.shopping_bag),
+                  ),
+                ),
+                title: Text('Hire for order pickup'),
+              ),
             ),
             SizedBox(height:15),
 
-
-            ListTile(
-              leading: Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
-                child: Padding(
-                  padding: const EdgeInsets.all(17),
-                  child: Icon(Icons.shopping_bag),
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>profession_screen()));
+              },
+              child: ListTile(
+                leading: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(17),
+                    child: Icon(Icons.people_outline_rounded),
+                  ),
                 ),
+                title: Text('Hire for professionals'),
               ),
-              title: Text('Hire for order pickup'),
             ),
-            SizedBox(height:15),
 
-            ListTile(
-              leading: Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
-                child: Padding(
-                  padding: const EdgeInsets.all(17),
-                  child: Icon(Icons.people_outline_rounded),
+            SizedBox(height: 130),
+
+            Container(
+              width: 380,
+              padding: EdgeInsets.all(14.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 2.0,
                 ),
+                borderRadius: BorderRadius.circular(10.0),
               ),
-              title: Text('Hire for professionals'),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Icon(Icons.home,size: 40,),
+                  Icon(Icons.wallet,size: 40,),
+                  Icon(Icons.map,size: 40,),
+                  Icon(Icons.person,size: 40,),
+                ],
+              ),
             ),
 
           ],
+
         ),
       ),
     );
