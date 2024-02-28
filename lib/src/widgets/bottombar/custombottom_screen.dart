@@ -1,28 +1,53 @@
+import 'package:connect_mate/src/screen/account/account_screen.dart';
+import 'package:connect_mate/src/screen/home/home_screen.dart';
+import 'package:connect_mate/src/screen/pickupdrop/pickupdrop_screen.dart';
 import 'package:flutter/material.dart';
 
-class CustomBottomBar extends StatelessWidget {
-  final List<BottomNavigationBarItem> items;
-  final int currentIndex;
-  final Function(int) onTap;
-
-  CustomBottomBar({
-    required this.items,
-    required this.currentIndex,
-    required this.onTap,
-  });
+class CustomBottomBar extends StatefulWidget {
+  const CustomBottomBar({Key? key}) : super(key: key);
 
   @override
+  _CustomBottomBarState createState() => _CustomBottomBarState();
+}
+
+class _CustomBottomBarState extends State<CustomBottomBar> {
+  @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: items,
-      currentIndex: currentIndex,
-      onTap: onTap,
-      selectedItemColor: Colors.blue, // Customize as needed
-      unselectedItemColor: Colors.grey, // Customize as needed
-      backgroundColor: Colors.white, // Customize as needed
-      type: BottomNavigationBarType.fixed, // Customize as needed
-      showSelectedLabels: true, // Customize as needed
-      showUnselectedLabels: true, // Customize as needed
+    return AnimatedPositioned(
+      duration: Duration.zero,
+      child: Container(
+        width: 380,
+        padding: EdgeInsets.all(14.0),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black,
+            width: 2.0,
+          ),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            InkWell(
+                onTap:(){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>home_screen()));
+                } ,
+                child: Icon(Icons.home, size: 40)),
+            Icon(Icons.wallet, size: 40),
+            InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>pickupdrop_screen()));
+              },
+                child: Icon(Icons.map, size: 40)
+            ),
+            InkWell(
+                onTap:(){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>account_screen()));
+                } ,
+                child: Icon(Icons.person, size: 40)),
+          ],
+        ),
+      ),
     );
   }
 }

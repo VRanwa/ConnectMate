@@ -1,3 +1,6 @@
+import 'package:connect_mate/src/screen/profile/profile_screen.dart';
+import 'package:connect_mate/src/screen/wallet/wallet_screen.dart';
+import 'package:connect_mate/src/widgets/bottombar/custombottom_screen.dart';
 import 'package:flutter/material.dart';
 
 class account_screen extends StatefulWidget {
@@ -37,12 +40,17 @@ class account_screenState extends State<account_screen> {
                         ),
                       ),
                       SizedBox(width: 170),
-                      Text('₹',
-                        textAlign:TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>wallet_screen()));
+                        },
+                        child: Text('₹',
+                          textAlign:TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
 
@@ -59,12 +67,17 @@ class account_screenState extends State<account_screen> {
                   ),
                 ),
                 SizedBox(height: 10),
-                Text('Update',
-                  textAlign:TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>profile_screen()));
+                  },
+                  child: Text('Update',
+                    textAlign:TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -134,26 +147,8 @@ class account_screenState extends State<account_screen> {
                 ),
              SizedBox(height: 120),
 
-                Container(
-                  width: 380,
-                  padding: EdgeInsets.all(14.0),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Icon(Icons.home,size: 40,),
-                      Icon(Icons.wallet,size: 40,),
-                      Icon(Icons.map,size: 40,),
-                      Icon(Icons.person,size: 40,),
-                    ],
-                  ),
-                ),
+                const CustomBottomBar()
+
 
 
               ],

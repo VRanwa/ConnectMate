@@ -2,6 +2,7 @@ import 'package:connect_mate/src/screen/account/account_screen.dart';
 import 'package:connect_mate/src/screen/hire/hire_screen.dart';
 import 'package:connect_mate/src/screen/pickupdrop/pickupdrop_screen.dart';
 import 'package:connect_mate/src/screen/profession/profession_screen.dart';
+import 'package:connect_mate/src/widgets/bottombar/custombottom_screen.dart';
 import 'package:flutter/material.dart';
 
 class home_screen extends StatefulWidget {
@@ -108,28 +109,7 @@ class _home_screenState extends State<home_screen> {
             ),
 
             SizedBox(height: 130),
-
-            Container(
-              width: 380,
-              padding: EdgeInsets.all(14.0),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black,
-                  width: 2.0,
-                ),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Icon(Icons.home,size: 40,),
-                  Icon(Icons.wallet,size: 40,),
-                  Icon(Icons.map,size: 40,),
-                  Icon(Icons.person,size: 40,),
-                ],
-              ),
-            ),
-
+            const CustomBottomBar()
           ],
 
         ),
