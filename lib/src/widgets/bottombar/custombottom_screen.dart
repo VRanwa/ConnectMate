@@ -1,6 +1,7 @@
 import 'package:connect_mate/src/screen/account/account_screen.dart';
 import 'package:connect_mate/src/screen/home/home_screen.dart';
 import 'package:connect_mate/src/screen/pickupdrop/pickupdrop_screen.dart';
+import 'package:connect_mate/src/screen/wallet/wallet_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomBar extends StatefulWidget {
@@ -33,7 +34,11 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>home_screen()));
                 } ,
                 child: Icon(Icons.home, size: 40)),
-            Icon(Icons.wallet, size: 40),
+            InkWell(
+              onTap:(){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>wallet_screen()));
+              },
+                child: Icon(Icons.wallet, size: 40)),
             InkWell(
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>pickupdrop_screen()));

@@ -58,12 +58,18 @@ class account_screenState extends State<account_screen> {
                   ),
                 ),
                 SizedBox(height: 30),
-                Container(
-                  height: 140,
-                  width: 140,
-                  decoration: BoxDecoration(
-                     color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(70),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>profile_screen()));
+
+                  },
+                  child: Container(
+                    height: 140,
+                    width: 140,
+                    decoration: BoxDecoration(
+                       color: Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(70),
+                    ),
                   ),
                 ),
                 SizedBox(height: 10),
