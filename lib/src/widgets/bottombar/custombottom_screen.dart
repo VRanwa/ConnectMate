@@ -1,8 +1,8 @@
-import 'package:connect_mate/src/screen/account/account_screen.dart';
-import 'package:connect_mate/src/screen/home/home_screen.dart';
-import 'package:connect_mate/src/screen/pickupdrop/pickupdrop_screen.dart';
-import 'package:connect_mate/src/screen/wallet/wallet_screen.dart';
 import 'package:flutter/material.dart';
+import '../../screen/account/account_screen.dart';
+import '../../screen/home/home_screen.dart';
+import '../../screen/pickupdrop/pickupdrop_screen.dart';
+import '../../screen/wallet/wallet_screen.dart';
 
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({Key? key}) : super(key: key);
@@ -31,23 +31,23 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           children: <Widget>[
             InkWell(
                 onTap:(){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>home_screen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
                 } ,
                 child: Icon(Icons.home, size: 40)),
             InkWell(
-              onTap:(){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>wallet_screen()));
-              },
+                onTap:(){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>WalletScreen()));
+                },
                 child: Icon(Icons.wallet, size: 40)),
             InkWell(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>pickupdrop_screen()));
-              },
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PickupDropScreen()));
+                },
                 child: Icon(Icons.map, size: 40)
             ),
             InkWell(
                 onTap:(){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>account_screen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AccountScreen()));
                 } ,
                 child: Icon(Icons.person, size: 40)),
           ],

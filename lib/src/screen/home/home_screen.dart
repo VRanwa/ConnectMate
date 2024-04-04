@@ -5,40 +5,43 @@ import 'package:connect_mate/src/screen/profession/profession_screen.dart';
 import 'package:connect_mate/src/widgets/bottombar/custombottom_screen.dart';
 import 'package:flutter/material.dart';
 
-class home_screen extends StatefulWidget {
-  const home_screen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<home_screen> createState() => _home_screenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _home_screenState extends State<home_screen> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 80, left: 5),
-              child: Row(
+      appBar: AppBar(
+        title: Text('Home'), // Moved "Home" text to app bar
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0), // Adjust padding based on screen size
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height, // Adjust height as needed
+          child: Column(
+            children: [
+              SizedBox(height: 20), // Add spacing after app bar
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space widgets horizontally
                 children: [
                   Text(
-                    "home",
-                    style: TextStyle(
+                    "Welcome!",
+                    style: TextStyle( // Adjust title style for responsiveness
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
-                      fontSize: 30,
+                      fontSize: MediaQuery.of(context).size.width < 350 ? 20 : 25,
                     ),
                   ),
-                  SizedBox(width: 225),
                   InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>account_screen()));
-                    },
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AccountScreen())),
                     child: Container(
-                      height: 70,
-                      width: 70,
+                      height: 50,
+                      width: 50,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(40),
                         color: Colors.grey.shade600,
@@ -47,71 +50,60 @@ class _home_screenState extends State<home_screen> {
                   ),
                 ],
               ),
-            ),
-            SizedBox(height: 45),
-            Container(
-              height: 200,
-              width: 360,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+              SizedBox(height: 20),
+              Container(
+                height: 200,
+                width: MediaQuery.of(context).size.width, // Set full width
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                ),
               ),
-            ),
-
-            SizedBox(height: 25),
-            InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>hire_screen()));
-              },
-              child: ListTile(
-                leading: Card(
+              SizedBox(height: 25),
+              InkWell(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => HireScreen())),
+                child: ListTile(
+                  leading: Card(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
                     child: Padding(
-                      padding: const EdgeInsets.all(17),
+                      padding: const EdgeInsets.all(17.0),
                       child: Icon(Icons.computer_outlined),
-                    )),
-                title: Text("Hire for hourly"),
-              ),
-            ),
-            SizedBox(height:15),
-
-
-            InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>pickupdrop_screen()));
-              },
-              child: ListTile(
-                leading: Card(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(17),
-                    child: Icon(Icons.shopping_bag),
+                    ),
                   ),
+                  title: Text('Hire for hourly'),
                 ),
-                title: Text('Hire for order pickup'),
               ),
-            ),
-            SizedBox(height:15),
-
-            InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>profession_screen()));
-              },
-              child: ListTile(
-                leading: Card(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(17),
-                    child: Icon(Icons.people_outline_rounded),
+              SizedBox(height: 15),
+              InkWell(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PickupDropScreen())),
+                child: ListTile(
+                  leading: Card(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(17.0),
+                      child: Icon(Icons.shopping_bag),
+                    ),
                   ),
+                  title: Text('Hire for order pickup'),
                 ),
-                title: Text('Hire for professionals'),
               ),
-            ),
-
-            SizedBox(height: 130),
-            const CustomBottomBar()
-          ],
-
+              SizedBox(height: 15),
+              InkWell(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessionScreen())),
+                child: ListTile(
+                  leading: Card(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.zero)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(17.0),
+                      child: Icon(Icons.people_outline_rounded),
+                    ),
+                  ),
+                  title: Text('Hire for professionals'),
+                ),
+              ),
+              Spacer(), // Add spacer for vertical centering
+              const CustomBottomBar(),
+            ],
+          ),
         ),
       ),
     );

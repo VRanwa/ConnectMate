@@ -1,119 +1,73 @@
 import 'package:connect_mate/src/screen/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
-class signUp_screen extends StatefulWidget {
-  const signUp_screen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<signUp_screen> createState() => _signUp_screenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _signUp_screenState extends State<signUp_screen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top:200,right: 180,bottom: 30 ),
-              child: Text('Register now',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold
-                ),
-              ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(right: 140),
-              child: Container(
-                width: 220,
-                color: Colors.grey.shade200,
-                child: TextField(style:TextStyle(color: Colors.black,),
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.black,
-                        width: 2.0,
-                      ),
-                    ),
-                    hintText: 'username*',
+      appBar: AppBar(
+        title: Text(
+          'Register Now',
+          style: TextStyle(
+            fontSize: MediaQuery.of(context).size.width < 350 ? 20 : 25, // Adjust title font size
+          ),
+        ),
+      ),
+      body: SingleChildScrollView( // Allow scrolling on small screens
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0), // Adjust padding based on screen size
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center, // Center vertically
+              children: [
+                SizedBox(height: 20), // Add spacing after app bar
+                _buildTextField(hintText: 'Username*', isPassword: false),
+                SizedBox(height: 20),
+                _buildTextField(hintText: 'Email Address*', isPassword: false),
+                SizedBox(height: 20),
+                _buildTextField(hintText: 'Password*', isPassword: true),
+                SizedBox(height: 40),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
+                  },
+                  child: Text('Register'),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(MediaQuery.of(context).size.width * 0.8, 50), // Adjust button width based on screen size
                   ),
                 ),
-              ),
+              ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
 
-
-            SizedBox(height: 20),
-
-            Container(
-              width: 360,
-              color: Colors.grey.shade200,
-              child: TextField(style:TextStyle(color: Colors.black,),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                      width: 2.0,
-                    ),
-                  ),
-                  hintText: 'email address*',
-                ),
-              ),
+  Widget _buildTextField({required String hintText, required bool isPassword}) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.8, // Adjust width based on screen size
+      child: TextField(
+        obscureText: isPassword, // Hide text for password field
+        style: TextStyle(color: Colors.black),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.black,
+              width: 1.0,
             ),
-
-            SizedBox(height: 20),
-
-            Container(
-              width: 360,
-              color: Colors.grey.shade200,
-              child: TextField(
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                      width: 1.0, // Reduce the width of the border here
-                    ),
-                  ),
-                  hintText: 'password*',
-                ),
-              ),
-            ),
-
-
-            SizedBox(height: 40),
-
-            InkWell(
-              onTap: () {
-
-              },
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>home_screen()));
-                },
-                child: Container(
-                  height: 50,
-                  width: 360,
-                  color: Colors.indigo.shade900,
-                  child: Text('Register',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-
-
-          ],
+          ),
+          hintText: hintText,
         ),
       ),
     );

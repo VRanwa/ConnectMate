@@ -1,127 +1,94 @@
 import 'package:connect_mate/src/widgets/bottombar/custombottom_screen.dart';
 import 'package:flutter/material.dart';
 
-class profile_screen extends StatefulWidget {
-  const profile_screen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<profile_screen> createState() => _profile_screenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _profile_screenState extends State<profile_screen> {
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile',style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
-        ),),
+        title: Text(
+          'Profile',
+          style: TextStyle(
+            fontSize: MediaQuery.of(context).size.width < 350 ? 20 : 30, // Adjust font size based on screen size
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
-      body: Center(
+      body: SingleChildScrollView( // Allow scrolling on small screens
+        padding: const EdgeInsets.symmetric(horizontal: 20.0), // Adjust padding based on screen size
         child: Column(
           children: [
             SizedBox(height: 20),
-            Container(
-              margin: EdgeInsets.only(left: 20),
-              height: 200,
-              width: 200,
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(100),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 170,top: 20),
-              child: Text('Basic Details',style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
+            Center( // Center profile picture container
+              child: Container(
+                height: 200,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(100),
+                ),
               ),
             ),
             SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(right: 260,),
-              child: Text('Name',style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: ListTile(
-                    titleAlignment: ListTileTitleAlignment.center,
-                    trailing: Padding(
-                      padding: const EdgeInsets.all(17),
-                      child: Icon(Icons.navigate_next),
-                    ),
-                    title: Text("User Name"),
+            Row( // Align "Basic Details" text to the left
+              children: [
+                Text(
+                  'Basic Details',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width < 350 ? 18 : 25, // Adjust font size based on screen size
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 260,),
-              child: Text('Phone No.',style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(height: 10),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: ListTile(
-                    titleAlignment: ListTileTitleAlignment.center,
-                    trailing: Padding(
-                      padding: const EdgeInsets.all(17),
-                      child: Icon(Icons.navigate_next),
-                    ),
-                    title: Text("Phone No."),
-                  ),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(right: 260,),
-              child: Text('Email id.',style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(height: 10),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: ListTile(
-                    titleAlignment: ListTileTitleAlignment.center,
-                    trailing: Padding(
-                      padding: const EdgeInsets.all(17),
-                      child: Icon(Icons.navigate_next),
-                    ),
-                    title: Text("Email id."),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 40),
-
-            CustomBottomBar()
-
+            SizedBox(height: 20),
+            _buildProfileDetailItem(title: 'Name', value: 'User Name'),
+            _buildProfileDetailItem(title: 'Phone No.', value: 'Phone No.'),
+            _buildProfileDetailItem(title: 'Email ID', value: 'Email id.'),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.17), // Adjust spacing based on screen size
+            CustomBottomBar(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildProfileDetailItem({required String title, required String value}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start, // Align titles and values to the left
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: MediaQuery.of(context).size.width < 350 ? 16 : 20, // Adjust font size based on screen size
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Card(
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: ListTile(
+                titleAlignment: ListTileTitleAlignment.center,
+                trailing: Padding(
+                  padding: const EdgeInsets.all(17),
+                  child: Icon(Icons.navigate_next),
+                ),
+                title: Text(value),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

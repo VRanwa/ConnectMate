@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => start_screen()),
+        MaterialPageRoute(builder: (context) => StartScreen()),
       );
     });
 

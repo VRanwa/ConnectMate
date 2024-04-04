@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
-class hire_screen extends StatefulWidget {
-  const hire_screen({super.key});
+class HireScreen extends StatefulWidget {
+  const HireScreen({super.key});
 
   @override
-  State<hire_screen> createState() => _hire_screenState();
+  State<HireScreen> createState() => _HireScreenState();
 }
 
-class _hire_screenState extends State<hire_screen> {
+class _HireScreenState extends State<HireScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Hire for Hourly"),
+      ),
+    );
   }
 }
