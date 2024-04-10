@@ -31,7 +31,7 @@ class _login_screenState extends State<login_screen> {
             ),
 
             Container(
-              width: 360,
+              width:MediaQuery.sizeOf(context).width*0.9,
               color: Colors.grey.shade200,
               child: TextField(style:TextStyle(color: Colors.black,),
                 decoration: InputDecoration(
@@ -46,12 +46,10 @@ class _login_screenState extends State<login_screen> {
               ),
             ),
 
-
-            SizedBox(height: 20),
-
+            SizedBox(height:MediaQuery.sizeOf(context).height*0.02),
 
             Container(
-              width: 360,
+              width:MediaQuery.sizeOf(context).width*0.9,
               color: Colors.grey.shade200,
               child: TextField(
                 style: TextStyle(color: Colors.black),
@@ -68,7 +66,7 @@ class _login_screenState extends State<login_screen> {
             ),
 
 
-            SizedBox(height: 40),
+            SizedBox(height:MediaQuery.sizeOf(context).height*0.04),
 
             InkWell(
               onTap: () {

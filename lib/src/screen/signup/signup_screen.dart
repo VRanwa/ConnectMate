@@ -27,10 +27,8 @@ class _signUp_screenState extends State<signUp_screen> {
               ),
             ),
 
-            Padding(
-              padding: const EdgeInsets.only(right: 140),
-              child: Container(
-                width: 220,
+            Container(
+                width:360,
                 color: Colors.grey.shade200,
                 child: TextField(style:TextStyle(color: Colors.black,),
                   decoration: InputDecoration(
@@ -44,7 +42,7 @@ class _signUp_screenState extends State<signUp_screen> {
                   ),
                 ),
               ),
-            ),
+
 
 
             SizedBox(height: 20),

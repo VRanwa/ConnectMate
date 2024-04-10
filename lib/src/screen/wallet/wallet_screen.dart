@@ -99,8 +99,8 @@ class _wallet_screenState extends State<wallet_screen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-                    CustomBottomBar(),
+                    SizedBox(height:MediaQuery.sizeOf(context).height*0.08),
+                    CustomBottomBar()
                   ],
                 ),
               ),

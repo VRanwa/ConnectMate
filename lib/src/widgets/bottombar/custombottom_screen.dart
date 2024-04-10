@@ -1,8 +1,10 @@
 import 'package:connect_mate/src/screen/account/account_screen.dart';
 import 'package:connect_mate/src/screen/home/home_screen.dart';
 import 'package:connect_mate/src/screen/pickupdrop/pickupdrop_screen.dart';
+import 'package:connect_mate/src/screen/profile/profile_screen.dart';
 import 'package:connect_mate/src/screen/wallet/wallet_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({Key? key}) : super(key: key);
@@ -31,23 +33,23 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           children: <Widget>[
             InkWell(
                 onTap:(){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>home_screen()));
+                  Get.offAll(()=>home_screen(),transition: Transition.fadeIn);
                 } ,
                 child: Icon(Icons.home, size: 40)),
             InkWell(
               onTap:(){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>wallet_screen()));
+                Get.to(()=>wallet_screen(),transition: Transition.fadeIn);
               },
                 child: Icon(Icons.wallet, size: 40)),
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>pickupdrop_screen()));
+                Get.to(()=>pickupdrop_screen(),transition: Transition.fadeIn);
               },
                 child: Icon(Icons.map, size: 40)
             ),
             InkWell(
                 onTap:(){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>account_screen()));
+                  Get.to(()=>profile_screen(),transition: Transition.fadeIn);
                 } ,
                 child: Icon(Icons.person, size: 40)),
           ],

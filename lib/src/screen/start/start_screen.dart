@@ -35,8 +35,8 @@ class _start_screenState extends State<start_screen> {
                      );
                      },
                      child: Container(
-                       height: 40,
-                       width: 170,
+                       height: MediaQuery.sizeOf(context).height*0.05,
+                       width: MediaQuery.sizeOf(context).width*0.4,
                        decoration: BoxDecoration(
                          color: Colors.indigo.shade900,
                        ),
@@ -52,10 +52,10 @@ class _start_screenState extends State<start_screen> {
                      ),
                    ),
 
-                   SizedBox(width: 20),
+                   SizedBox(width: MediaQuery.sizeOf(context).width*0.1),
                    Container(
-                     height: 40,
-                     width: 170,
+                     height: MediaQuery.sizeOf(context).height*0.05,
+                     width: MediaQuery.sizeOf(context).width*0.4,
                      decoration: BoxDecoration(
                          color: Colors.black,
                      ),

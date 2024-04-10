@@ -1,4 +1,5 @@
 import 'package:connect_mate/src/screen/profile/profile_screen.dart';
+import 'package:connect_mate/src/screen/profile/userimage/user_image.dart';
 import 'package:connect_mate/src/screen/wallet/wallet_screen.dart';
 import 'package:connect_mate/src/widgets/bottombar/custombottom_screen.dart';
 import 'package:flutter/material.dart';
@@ -58,20 +59,23 @@ class account_screenState extends State<account_screen> {
                   ),
                 ),
                 SizedBox(height: 30),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>profile_screen()));
-
-                  },
-                  child: Container(
+                Container(
                     height: 140,
                     width: 140,
                     decoration: BoxDecoration(
                        color: Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(70),
+                      image: DecorationImage(
+                        image: NetworkImage('https://imgs.search.brave.com/_rBsChXZyyT7onpGzZaw-rh4K_PhoVvhW7I0tzF5c7w/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9p/bmRpYW4tbWFuLXN0/dWRlbnQtc2hpcnQt/cG9zZWQtb3V0ZG9v/cl82Mjc4MjktMjI3/Ni5qcGc_c2l6ZT02/MjYmZXh0PWpwZw'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 115,left: 100),
+                      child: Icon(Icons.settings),
                     ),
                   ),
-                ),
+
                 SizedBox(height: 10),
                 InkWell(
                   onTap: (){

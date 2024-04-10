@@ -9,6 +9,7 @@ class profile_screen extends StatefulWidget {
 }
 
 class _profile_screenState extends State<profile_screen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,16 +22,7 @@ class _profile_screenState extends State<profile_screen> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 20),
-            Container(
-              margin: EdgeInsets.only(left: 20),
-              height: 200,
-              width: 200,
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(100),
-              ),
-            ),
+            SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(right: 170,top: 20),
               child: Text('Basic Details',style: TextStyle(
@@ -56,9 +48,9 @@ class _profile_screenState extends State<profile_screen> {
                     titleAlignment: ListTileTitleAlignment.center,
                     trailing: Padding(
                       padding: const EdgeInsets.all(17),
-                      child: Icon(Icons.navigate_next),
+                      child: Icon(Icons.edit),
                     ),
-                    title: Text("User Name"),
+                    title: Text("Mohan Mishra"),
                   ),
                 ),
               ),
@@ -81,9 +73,9 @@ class _profile_screenState extends State<profile_screen> {
                     titleAlignment: ListTileTitleAlignment.center,
                     trailing: Padding(
                       padding: const EdgeInsets.all(17),
-                      child: Icon(Icons.navigate_next),
+                      child: Icon(Icons.edit),
                     ),
-                    title: Text("Phone No."),
+                    title: Text("8648758455"),
                   ),
                 ),
               ),
@@ -108,17 +100,44 @@ class _profile_screenState extends State<profile_screen> {
                     titleAlignment: ListTileTitleAlignment.center,
                     trailing: Padding(
                       padding: const EdgeInsets.all(17),
-                      child: Icon(Icons.navigate_next),
+                      child: Icon(Icons.edit),
                     ),
-                    title: Text("Email id."),
+                    title: Text("mm@gmail.com"),
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.only(right: 260,),
+              child: Text('Passcode.',style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 10),
 
-            CustomBottomBar()
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: ListTile(
+                    titleAlignment: ListTileTitleAlignment.center,
+                    trailing: Padding(
+                      padding: const EdgeInsets.all(17),
+                      child: Icon(Icons.edit),
+                    ),
+                    title: Text("******"),
+                  ),
+                ),
+              ),
+            ),
 
+            Padding(
+              padding: const EdgeInsets.only(top: 95),
+              child: CustomBottomBar(),
+            )
           ],
         ),
       ),
